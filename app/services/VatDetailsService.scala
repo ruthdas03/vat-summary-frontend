@@ -17,15 +17,16 @@
 package services
 
 import java.time.LocalDate
-
 import config.AppConfig
-import connectors.{FinancialDataConnector, VatObligationsConnector}
+import connectors.{FinancialDataConnector, PenaltiesConnector, VatObligationsConnector}
+
 import javax.inject.{Inject, Singleton}
 import models.ServiceResponse
 import models.errors.{NextPaymentError, ObligationsError}
 import models.obligations.Obligation.Status._
 import models.obligations.VatReturnObligations
 import models.payments.Payments
+import models.penalties.Penalties
 import uk.gov.hmrc.http.HeaderCarrier
 
 import scala.concurrent.{ExecutionContext, Future}
@@ -33,7 +34,9 @@ import scala.concurrent.{ExecutionContext, Future}
 @Singleton
 class VatDetailsService @Inject()(vatObligationsConnector: VatObligationsConnector,
                                   financialDataConnector: FinancialDataConnector,
+                                  penaltiesConnector:PenaltiesConnector,
                                   implicit val appConfig: AppConfig) {
+
 
   def getReturnObligations(vrn: String, date: LocalDate)
                           (implicit hc: HeaderCarrier,
@@ -59,4 +62,6 @@ class VatDetailsService @Inject()(vatObligationsConnector: VatObligationsConnect
         }
       case Left(_) => Left(NextPaymentError)
     }
+  //TODO: get penalties from penalties service
+  def getPenalties(vrn:String) ={}
 }

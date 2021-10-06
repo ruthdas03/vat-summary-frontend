@@ -63,6 +63,7 @@ class VatDetailsController @Inject()(val enrolmentsAuthService: EnrolmentsAuthSe
         val accountDetailsCall = accountDetailsService.getAccountDetails(user.vrn)
         val returnObligationsCall = vatDetailsService.getReturnObligations(user.vrn, dateService.now())
         lazy val paymentObligationsCall = vatDetailsService.getPaymentObligations(user.vrn)
+        val penaltiesCall = vatDetailsService.getPenalties(user.vrn)
         for {
           customerInfo <- accountDetailsCall
           nextReturn <- returnObligationsCall

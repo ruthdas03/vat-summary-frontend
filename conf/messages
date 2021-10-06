@@ -433,3 +433,9 @@ a11yStatement.pagePrepared = This page was prepared on 20 September 2019. It was
 emailVerification.message.1 = You need to confirm your email address.
 emailVerification.message.2 = Resend the email
 emailVerification.message.3 = to confirm it.
+
+vatPenaltiesBanner.lspANDlpp.heading = Late submission and late payment penalties
+vatPenaltiesBanner.lspANDlpp.penaltyAmount = Penalty amount to pay: £{0}
+vatPenaltiesBanner.lspANDlpp.estimatedPenaltyAmount = Estimated penalty amount: £{0}
+vatPenaltiesBanner.lspANDlpp.totalPenaltyAmount = Total Penalty Points {0}
+vatPenaltiesBanner.lspANDlpp.whyYouHavePenalty = Find out why you have a penalty
